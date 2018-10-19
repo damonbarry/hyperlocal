@@ -4,7 +4,10 @@
 use std::error;
 use std::fmt;
 use std::io;
+#[cfg(unix)]
 use std::os::unix::net::{SocketAddr, UnixListener as StdUnixListener};
+#[cfg(windows)]
+use mio_uds_windows::net::{SocketAddr, UnixListener as StdUnixListener};
 use std::path::Path;
 
 // Third party
@@ -170,7 +173,11 @@ where
 /// ```rust
 /// extern crate hyper;
 /// extern crate hyperlocal;
+/// extern crate mio_uds_windows;
 ///
+/// # #[cfg(windows)]
+/// use mio_uds_windows::net::UnixListener;
+/// # #[cfg(unix)]
 /// use std::os::unix::net::UnixListener;
 /// use hyper::{Response, rt::{Future, Stream}, service::service_fn};
 /// use hyperlocal::server::{Http, Incoming};
