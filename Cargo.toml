@@ -21,5 +21,9 @@ tokio-uds = { git = "https://github.com/damonbarry/tokio.git", branch = "windows
 mio-uds-windows = { git = "https://github.com/damonbarry/mio-uds-windows.git" }
 
 [replace]
+"tokio-executor:0.1.5" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
 "tokio-io:0.1.9" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
+"tokio-reactor:0.1.6" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
+"tokio-tcp:0.1.2" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
+"tokio-timer:0.2.7" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
 "tokio:0.1.11" = { git = "https://github.com/damonbarry/tokio.git", branch = "windows" }
