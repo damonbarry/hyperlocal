@@ -6,7 +6,10 @@ use std::io;
 // Third party
 use futures::{Async, Future, Poll};
 use hyper::client::connect::{Connect, Connected, Destination};
+#[cfg(unix)]
 use tokio_uds::{ConnectFuture as StreamConnectFuture, UnixStream};
+#[cfg(windows)]
+use tokio_uds_windows::{ConnectFuture as StreamConnectFuture, UnixStream};
 
 use super::Uri;
 

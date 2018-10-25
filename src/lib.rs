@@ -7,11 +7,14 @@
 extern crate futures;
 extern crate hex;
 extern crate hyper;
-extern crate tokio;
-extern crate tokio_io;
-extern crate tokio_uds;
 #[cfg(windows)]
 extern crate mio_uds_windows; 
+extern crate tokio;
+extern crate tokio_io;
+#[cfg(unix)]
+extern crate tokio_uds;
+#[cfg(windows)]
+extern crate tokio_uds_windows;
 
 use std::borrow::Cow;
 use std::path::Path;

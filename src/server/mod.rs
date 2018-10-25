@@ -17,7 +17,10 @@ use hyper::server::conn::{Connection as HyperConnection, Http as HyperHttp};
 use hyper::service::{NewService, Service};
 use hyper::Body;
 use tokio::{reactor::Handle, runtime::Runtime};
+#[cfg(unix)]
 use tokio_uds::{Incoming as UnixIncoming, UnixListener, UnixStream};
+#[cfg(windows)]
+use tokio_uds_windows::{Incoming as UnixIncoming, UnixListener, UnixStream};
 
 /// An instance of a unix domain socket server created through `Server::bind`.
 ///
